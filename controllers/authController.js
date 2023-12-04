@@ -10,16 +10,16 @@ const autenticacion = async (req, res)=>{
         req.body.user_name, 
         req.body.pass
     ]
-
-    const sql = ` select user_name, email from tbl_users 
+    console.log(params);
+    const sql = ` select user_name, email from tbl_user 
                     where user_name =  $1
                     and pass = $2 
                     and is_active = true` ;
 
     const result  = await db.query(sql, params);
-
+    console.log(result);
     if (result.length > 0) {
-
+        console.log(result);
         const payload = {
             user_name : result[0].user_name,
             email :   result[0].email

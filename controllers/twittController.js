@@ -18,8 +18,15 @@ const createTwitt = async (req, res)=>{
 }
 
 const getTwitt = async (req, res) =>{
-    const sql = ` select id, twitt , user_name  from tbl_post
-    order by create_date desc `;
+    const sql = `
+    SELECT
+    twitt, user_name,
+    TO_CHAR(create_date, 'DD-Mon-YY HH:MI am') AS formatted_create_date
+    FROM
+    tbl_twitts
+    ORDER BY
+        create_date DESC;
+    `;
     const result = await db.query(sql);
     res.json(result);
 }

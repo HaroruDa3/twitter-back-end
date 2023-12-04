@@ -1,4 +1,4 @@
--- Active: 1698158298747@@localhost@5432@twitter
+-- Active: 1699242537309@@localhost@5432@twitter
 create table tbl_user
 (
     user_name varchar(30) PRIMARY key,
